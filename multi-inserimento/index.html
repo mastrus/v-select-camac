@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <script src="https://unpkg.com/lodash@latest/lodash.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-select/dist/vue-select.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>Vue Select - search</h1>
+    <ul id="taglie">
+
+        <li v-for="(item, index) in camacTaglie">
+            <span>{{item}}</span>
+            <v-select
+                    :value="qtyDaAcquistare.item"
+                    @input="value => setQuantitySelected(value, item)"
+
+
+                    :filterable="false"
+                    @search="onSearch"
+                    :options="options"
+
+                    :id="item+'-'+index"
+                    :name="item"
+            >
+            <template slot="no-options">
+                <span>nessun dato</span>
+            </template>
+
+            </v-select>
+            <br/>
+        </li>
+    </ul>
+
+</div>
+</body>
+<script src="index.js"></script>
+</html>
