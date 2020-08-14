@@ -85,14 +85,19 @@ new Vue({
          */
         insertOptions: function (valoriDaFornire, qtySlot, imballo){
             let options=[];
-            let slotQtyDown = 0;
-            let slotQtyUp = 0;
-            for(let i=0;i<=valoriDaFornire; i++) {
-                slotQtyUp = (qtySlot+i) * imballo;
-                slotQtyDown = (qtySlot-i) * imballo;
-                options.push(slotQtyUp);
-                if(slotQtyDown>=0 && options.indexOf(slotQtyDown)){
-                    options.push(slotQtyDown);
+            let slot = 0;
+
+            /* calcolo i valori superiori */
+            for(let i=1;i<=valoriDaFornire; i++) {
+                slot = (qtySlot+i) * imballo;
+                options.push(slot);
+            }
+
+            /* calcolo i valori inferiori */
+            for(let i=valoriDaFornire-1;i>=0; i--) {
+                slot = (qtySlot-i) * imballo;
+                if(slot>=0 && options.indexOf(slot)){
+                    options.push(slot);
                 }
             }
 
