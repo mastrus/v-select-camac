@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1839f640-dda7-4a21-9863-4029e8501cc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596991004749</updated>
-      <workItem from="1596991005783" duration="38544000" />
+      <workItem from="1596991005783" duration="41235000" />
     </task>
     <task id="LOCAL-00001" summary="Primo risultato valido e funzionante">
       <created>1597081629364</created>
@@ -68,7 +68,28 @@
       <option name="project" value="LOCAL" />
       <updated>1597428294994</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ottimizzato inserimento">
+      <created>1597429037276</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597429037276</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix">
+      <created>1597429073215</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597429073215</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ottimizzazione">
+      <created>1597429175466</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597429175466</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -79,13 +100,16 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Primo risultato valido e funzionante" />
     <MESSAGE value="Testato inserimento" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testato inserimento" />
+    <MESSAGE value="ottimizzato inserimento" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="ottimizzazione" />
+    <option name="LAST_COMMIT_MESSAGE" value="ottimizzazione" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2" timestamp="1597428294940">
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2" timestamp="1597429175410">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
-    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597428294940" />
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597429175410" />
     <state x="2651" y="1085" width="447" height="513" key="FileChooserDialogImpl" timestamp="1597081588721">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>

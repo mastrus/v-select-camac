@@ -7,7 +7,7 @@ new Vue({
         camacOrder: '103',
         camacCartone: 196,
         camacTaglie: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'],
-        valoriDaFornire: 3,
+        valoriDaFornire: 2, //valori da fornire sopra e sotto il valore inserito
         qtyDaAcquistare: []
     },
     /**
@@ -78,20 +78,29 @@ new Vue({
         /**
          * restituisce le opzione disponibili da ordinare in base ai parametri
          *
-         * @param valoriDaFornire numero di opzioni da fornire
+         * @param valoriDaFornire numero di opzioni da fornire sopra e sotto
          * @param qtySlot slot minimo che diventerà il moltiplicatore delle quantità ordinabili
          * @param imballo numero di pezzi per ogni imballo ordinabili
          * @returns {[]}
          */
         insertOptions: function (valoriDaFornire, qtySlot, imballo){
             let options=[];
-            for(let i=0;i<valoriDaFornire; i++) {
-                let slotQty = (qtySlot+i) * imballo;
-                options.push(slotQty);
+            let slotQtyDown = 0;
+            let slotQtyUp = 0;
+            for(let i=0;i<=valoriDaFornire; i++) {
+                slotQtyUp = (qtySlot+i) * imballo;
+                slotQtyDown = (qtySlot-i) * imballo;
+                options.push(slotQtyUp);
+                if(slotQtyDown>=0 && options.indexOf(slotQtyDown)){
+                    options.push(slotQtyDown);
+                }
             }
 
+            /* ordino l'arrai in maniera ascendente */
+            options.sort(function(a, b){return a-b});
             return options;
         },
+
         /**
          * la funzione imposta la quantità di merce ordinata in base alla taglia
          *
