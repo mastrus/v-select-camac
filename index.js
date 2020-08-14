@@ -101,7 +101,7 @@ new Vue({
                 }
             }
 
-            /* ordino l'arrai in maniera ascendente */
+            /* ordino l'array in maniera ascendente */
             options.sort(function(a, b){return a-b});
             return options;
         },
