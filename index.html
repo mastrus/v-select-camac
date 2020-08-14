@@ -19,29 +19,20 @@
 <div id="app">
     <h1>Vue Select - search</h1>
     <ul id="taglie">
-        <!--
 
-                    :value="qtyDaAcquistare"
-                    @input="setQuantitySelected(options, item, index)"
-
-                                        :clearSearchOnSelect="false"
-                    :closeOnSelect="false"
-
-         -->
-
-        <li v-for="(item, index) in camacTaglie"
-            :key="item"
-        >
+        <li v-for="(item, index) in camacTaglie">
             <span>{{item}}</span>
             <v-select
-                    ref="select"
-                    :inputId="item"
+                    :value="qtyDaAcquistare.item"
+                    @input="value => setQuantitySelected(value, qtyDaAcquistare, item)"
+
 
                     :filterable="false"
-                    :id="index"
-                    :name="item"
-                    :options="options"
                     @search="onSearch"
+                    :options="options"
+
+                    :id="item+'-'+index"
+                    :name="item"
             >
             <template slot="no-options">
                 <span>nessun dato</span>
@@ -56,16 +47,3 @@
 </body>
 <script src="index.js"></script>
 </html>
-
-<!--
-
-                <template slot="option" slot-scope="option">
-                    <span>qty: {{ option }}</span>
-                </template>
-
-<template slot="selected-option" slot-scope="option">
-    <div class="selected d-center">
-        {{ qtyDaAcquistare.qtyOption }}
-    </div>
-</template>
--->

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1839f640-dda7-4a21-9863-4029e8501cc7" name="Default Changelist" comment="" />
+    <list default="true" id="1839f640-dda7-4a21-9863-4029e8501cc7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,14 +53,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596991004749</updated>
-      <workItem from="1596991005783" duration="20877000" />
+      <workItem from="1596991005783" duration="37885000" />
     </task>
+    <task id="LOCAL-00001" summary="Primo risultato valido e funzionante">
+      <created>1597081629364</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597081629364</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Primo risultato valido e funzionante" />
+    <option name="LAST_COMMIT_MESSAGE" value="Primo risultato valido e funzionante" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2" timestamp="1597081629278">
+      <screen x="1920" y="822" width="1920" height="1080" />
+    </state>
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597081629278" />
     <state x="2651" y="1085" width="447" height="513" key="FileChooserDialogImpl" timestamp="1597081588721">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
@@ -65,5 +87,9 @@
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
     <state x="2490" y="955" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597080851022" />
+    <state x="2146" y="1086" width="937" height="946" key="dock-window-1" timestamp="1597427274928">
+      <screen x="1920" y="822" width="1920" height="1080" />
+    </state>
+    <state x="2146" y="1086" width="937" height="946" key="dock-window-1/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597427274928" />
   </component>
 </project>
