@@ -60,9 +60,6 @@ new Vue({
             /* prendo solo i valori che sono interi */
             if (Number.isInteger(Math.floor(data))) {
 
-                /* azzero le opzioni dopo ogni digitazione */
-                vm.options=[];
-
                 /* in base al camac order eseguo opzioni diverse */
                 switch (vm.camacOrder) {
                     case "103":
