@@ -79,7 +79,7 @@ new Vue({
             }
         }, 500),//millisecondi
         /**
-         * restituisce le opzione disponibili da ordinare in base hai parametri
+         * restituisce le opzione disponibili da ordinare in base ai parametri
          *
          * @param valoriDaFornire numero di opzioni da fornire
          * @param qtySlot slot minimo che diventerà il moltiplicatore delle quantità ordinabili
