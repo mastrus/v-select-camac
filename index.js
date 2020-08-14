@@ -10,11 +10,14 @@ new Vue({
         valoriDaFornire: 3,
         qtyDaAcquistare: []
     },
-    /*created(){
+    /**
+     * inizializzo tutte le quantita a 0 per ogni taglia disponibile
+     */
+    created(){
         for(let i in this.camacTaglie)  {
-            this.qtyDaAcquistare[this.camacTaglie[i]] = '';
+            this.qtyDaAcquistare[this.camacTaglie[i]] = 0;
         }
-    },*/
+    },
     computed: {
         /**
          * per gestire i test in maniera casuale del camac order
@@ -30,7 +33,7 @@ new Vue({
     methods: {
         /**
          * @param data quantità digitata dall'utente
-         * @function loading funzione per far comparire il simbolo di caricamento
+         * @param loading funzione per far comparire il simbolo di caricamento
          */
         onSearch: function (data, loading) {
 
@@ -96,11 +99,10 @@ new Vue({
          * la funzione imposta la quantità di merce ordinata in base alla taglia
          *
          * @param value
-         * @param qtyDaAcquistare
          * @param item
          */
-        setQuantitySelected: function (value, qtyDaAcquistare, item) {
-            qtyDaAcquistare[item] = value;
+        setQuantitySelected: function (value, item) {
+            this.qtyDaAcquistare[item] = value;
         },
 
     },
