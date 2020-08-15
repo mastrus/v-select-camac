@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="../index.css">
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -18,32 +18,33 @@
 <body>
 <div id="app">
     <h1>Vue Select - search</h1>
+
+    <p>Taglie selezionabili</p>
     <ul id="taglie">
 
         <li v-for="(item, index) in camacTaglie">
             <span>{{item}}</span>
-            <v-select
-                    :value="qtyDaAcquistare.item"
-                    @input="value => setQuantitySelected(value, item)"
-
-
-                    :filterable="false"
-                    @search="onSearch"
-                    :options="options"
-
-                    :id="item+'-'+index"
-                    :name="item"
-            >
-            <template slot="no-options">
-                <span>nessun dato</span>
-            </template>
-
-            </v-select>
             <br/>
         </li>
     </ul>
 
+    <v-select
+            @input="value => setQuantitySelected(value)"
+
+            :options="options"
+
+            taggable
+            multiple
+    >
+        <template slot="no-options">
+            <span>nessun dato</span>
+        </template>
+
+    </v-select>
+
+
+
 </div>
 </body>
-<script src="index.js"></script>
+<script src="indexMulti.js"></script>
 </html>

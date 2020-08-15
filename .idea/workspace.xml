@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1839f640-dda7-4a21-9863-4029e8501cc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi-inserimento/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/multi-inserimento/indexMulti.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi-inserimento/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/multi-inserimento/indexMulti.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +36,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/multi-inserimento" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/multi-inserimento" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -51,7 +54,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596991004749</updated>
-      <workItem from="1596991005783" duration="41579000" />
+      <workItem from="1596991005783" duration="42508000" />
+      <workItem from="1597479684644" duration="1667000" />
+      <workItem from="1597497205383" duration="102000" />
+      <workItem from="1597497320761" duration="3912000" />
     </task>
     <task id="LOCAL-00001" summary="Primo risultato valido e funzionante">
       <created>1597081629364</created>
@@ -95,7 +101,28 @@
       <option name="project" value="LOCAL" />
       <updated>1597431640025</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ottimizzazione del calcolo dei valori sopra e sotto">
+      <created>1597432123092</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1597432123092</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix">
+      <created>1597432135970</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1597432135970</updated>
+    </task>
+    <task id="LOCAL-00009" summary="inizio multi Inserimento">
+      <created>1597432211448</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597432211448</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,19 +134,25 @@
     <MESSAGE value="Primo risultato valido e funzionante" />
     <MESSAGE value="Testato inserimento" />
     <MESSAGE value="ottimizzato inserimento" />
-    <MESSAGE value="fix" />
     <MESSAGE value="ottimizzazione" />
-    <option name="LAST_COMMIT_MESSAGE" value="ottimizzazione" />
+    <MESSAGE value="ottimizzazione del calcolo dei valori sopra e sotto" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="inizio multi Inserimento" />
+    <option name="LAST_COMMIT_MESSAGE" value="inizio multi Inserimento" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2" timestamp="1597431639980">
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2" timestamp="1597432211402">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
-    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597431639980" />
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597432211402" />
     <state x="2651" y="1085" width="447" height="513" key="FileChooserDialogImpl" timestamp="1597081588721">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
     <state x="2651" y="1085" width="447" height="513" key="FileChooserDialogImpl/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597081588721" />
+    <state x="2369" y="977" key="SettingsEditor" timestamp="1597497369502">
+      <screen x="1920" y="822" width="1920" height="1080" />
+    </state>
+    <state x="2369" y="977" key="SettingsEditor/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597497369502" />
     <state x="2490" y="955" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597080851022">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
@@ -128,5 +161,9 @@
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
     <state x="2146" y="1086" width="937" height="946" key="dock-window-1/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597427274928" />
+    <state x="2463" y="1000" width="824" height="684" key="editAsTableFormatDialogDimension" timestamp="1597497134075">
+      <screen x="1920" y="822" width="1920" height="1080" />
+    </state>
+    <state x="2463" y="1000" width="824" height="684" key="editAsTableFormatDialogDimension/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597497134075" />
   </component>
 </project>
