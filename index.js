@@ -47,7 +47,7 @@ new Vue({
 
         },
         /**
-         * tramite _.debounce metto un ritardo per aspettare che l'utente digiti la quantità desiderata
+         * tramite _.debounce metto in attesa la funzione per aspettare che l'utente digiti la quantità desiderata
          * in base al camacOrder del prodotto eseguo dei calcoli specifici per mostrargli la quantità
          * corretta che è possibile ordinare
          *
