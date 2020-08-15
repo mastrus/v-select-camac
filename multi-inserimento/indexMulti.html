@@ -31,6 +31,8 @@
     <v-select
             @input="value => setQuantitySelected(value)"
 
+            :filterable="false"
+            @search="onSearch"
             :options="options"
 
             taggable

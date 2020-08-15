@@ -6,7 +6,7 @@ new Vue({
         options: [],
         camacOrder: '103',
         camacCartone: 196,
-        camacTaglie: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'],
+        camacTaglie: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '2XS'],
         valoriDaFornire: 2, //valori da fornire sopra e sotto il valore inserito
         qtyDaAcquistare: []
     },
@@ -20,7 +20,22 @@ new Vue({
     },
     methods: {
         /**
-         * tramite _.debounce metto un ritardo per aspettare che l'utente digiti la quantità desiderata
+         * @param data quantità digitata dall'utente
+         * @param loading funzione per far comparire il simbolo di caricamento
+         */
+        onSearch: function (data, loading) {
+
+            /* necessario perchè search passa più volte con un valore "" */
+            if (data !== "") {
+                loading(true);
+                /* attendo che l'utente completi di digitare */
+                this.search(data, this);
+                loading(false);
+            }
+
+        },
+        /**
+         * tramite _.debounce metto in attesa la funzione per aspettare che l'utente digiti la quantità desiderata
          * in base al camacOrder del prodotto eseguo dei calcoli specifici per mostrargli la quantità
          * corretta che è possibile ordinare
          *
@@ -29,6 +44,8 @@ new Vue({
          *
          */
         search: _.debounce((data, vm) => {
+
+            let res = vm.verificaInserimento(value);
 
             /* prendo solo i valori che sono interi */
             if (Number.isInteger(Math.floor(data))) {
@@ -47,7 +64,7 @@ new Vue({
                         break;
                 }
             }
-        }, 500),//millisecondi
+        }, 2500),//millisecondi
         /**
          * restituisce le opzione disponibili da ordinare in base ai parametri
          *
@@ -86,15 +103,20 @@ new Vue({
          *
          * @param value
          */
-        setQuantitySelected: function (value) {
+        setQuantitySelected: function (data) {
 
-            /* verifico che nella stringa non ci siano caratteri strani */
-            value=this.sanitize(value);
+            /* prendo solo l'ultimo inserimento */
+            let value = data[data.length - 1];
 
             /* verifico che le quantita e taglie inserite siano conformi */
-            let valueArray = this.verificaInserimento(value)
 
-            this.qtyDaAcquistare[valueArray.taglia] = valueArray.qty;
+            let valueArray = this.verificaInserimento(value);
+
+            if (valueArray !== false) {
+                this.qtyDaAcquistare[valueArray.taglia] = valueArray.qty;
+            } else {
+                return false;
+            }
         },
 
         /**
@@ -102,7 +124,7 @@ new Vue({
          *
          * @param value
          */
-        verificaInserimento(value) {
+        verificaInserimento: function (value) {
             let tagliaInserita = '';
             let qtyInserita = 0;
 
@@ -115,36 +137,91 @@ new Vue({
             /* imposto la stringa tutta in caratteri minuscoli */
             value = value.toLocaleLowerCase();
 
-            /* verifico che la taglia inserita sia valida */
-            //todo verificare che non siano state inserite anche anltre taglie o parole strane
-            //  e che sia case insensitive
-            for(let x in this.camacTaglie){
-                if(value.includes(this.camacTaglie[x].toLocaleLowerCase())){
-                    tagliaInserita = this.camacTaglie[x];
-                    //todo rimuovere la taglia dalla stringa
+            /* Estra la taglia inserita se valida*/
+            tagliaInserita = this.estraiTagliaInserita(value);
 
-                    /* prelevo la quantita inserita */
-                    qtyInserita = value.replace(/\D/g, "");
-                    qtyInserita = parseInt(qtyInserita);
+            if (tagliaInserita !== false) {
+                //todo rimuovere dalla stringa di input la taglia
 
-                    break
-                }
+                /* prelevo la quantita inserita */
+                qtyInserita = value.replace(/\D/g, "");
+                qtyInserita = parseInt(qtyInserita);
+
+                return {
+                    taglia: tagliaInserita,
+                    qty: qtyInserita
+                };
+            } else {
+                return false;
             }
-
-            return {
-                taglia: tagliaInserita,
-                qty: qtyInserita
-            };
 
         },
         /**
-         * serve ad eliminare caratteri strani dalla stringa
-         * @param s
+         * Estrae la taglia inserita nella stringa
+         * se non trova niente restituisce false
+         *
+         * @param value
+         * @returns {boolean|*|string}
+         */
+        estraiTagliaInserita: function (value) {
+
+            let taglieDisponibili = _.clone(this.camacTaglie);
+            let taglieDaRimuovere = [];
+
+            /* verifico le taglie numeriche se presenti e se non presenti le rimuovo */
+            for (let i in taglieDisponibili) {
+                if (parseInt(taglieDisponibili[i])) {
+                    let taglia = taglieDisponibili[i]
+                    if (value.includes(taglia.toLocaleLowerCase())) {
+                        return taglia;
+                    }
+                    taglieDaRimuovere.push(taglia);
+                }
+            }
+
+            /* rimuovo la taglie non trovate */
+            for(let i in taglieDaRimuovere) {
+                this.rimuoviTaglia(taglieDaRimuovere[i],taglieDisponibili);
+            }
+
+            /*
+            * Verifico tutte le taglie letterali
+            * non devo confondere L con XL o casi similari
+            * per evitare il problema verifico dalla stringa più lunga alla più corta
+            */
+            taglieDisponibili.sort(function (a, b) {
+                // ASC  -> a.length - b.length
+                // DESC -> b.length - a.length
+                return b.length - a.length;
+            });
+
+            for (let i in taglieDisponibili) {
+                let taglia = taglieDisponibili[i]
+                if (value.includes(taglia.toLocaleLowerCase())) {
+                    return taglia;
+                }
+            }
+
+            /* se non trovo nessuna taglia torno false */
+            return false;
+        },
+        /**
+         * rimuove la taglia richiesta dall'array
+         *
+         * @param taglia
+         * @param taglieDisponibili
          * @returns {*}
          */
-        sanitize(s) {
-            return s;
-            //s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
-        }
+        rimuoviTaglia: function (taglia, taglieDisponibili) {
+
+            for (let i = 0; i < taglieDisponibili.length; i++) {
+                if (taglieDisponibili[i] === taglia) {
+                    taglieDisponibili.splice(i, 1);
+                }
+            }
+
+            return taglieDisponibili
+
+        },
     },
 })

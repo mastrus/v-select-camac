@@ -57,7 +57,7 @@
       <workItem from="1596991005783" duration="42508000" />
       <workItem from="1597479684644" duration="1667000" />
       <workItem from="1597497205383" duration="102000" />
-      <workItem from="1597497320761" duration="9864000" />
+      <workItem from="1597497320761" duration="10575000" />
     </task>
     <task id="LOCAL-00001" summary="Primo risultato valido e funzionante">
       <created>1597081629364</created>
@@ -129,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597501543228</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix comment">
+      <created>1597507368863</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1597507368863</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,13 +153,14 @@
     <MESSAGE value="fix" />
     <MESSAGE value="inizio multi Inserimento" />
     <MESSAGE value="primo approccio multi inserimento" />
-    <option name="LAST_COMMIT_MESSAGE" value="primo approccio multi inserimento" />
+    <MESSAGE value="fix comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix comment" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2" timestamp="1597501543100">
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2" timestamp="1597507368813">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
-    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597501543100" />
+    <state x="2419" y="899" width="912" height="886" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597507368813" />
     <state x="2651" y="1085" width="447" height="513" key="FileChooserDialogImpl" timestamp="1597081588721">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
