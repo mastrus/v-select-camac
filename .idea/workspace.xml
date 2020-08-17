@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1839f640-dda7-4a21-9863-4029e8501cc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multi-inserimento/indexMulti.html" beforeDir="false" afterPath="$PROJECT_DIR$/multi-inserimento/indexMulti.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multi-inserimento/indexMulti.js" beforeDir="false" afterPath="$PROJECT_DIR$/multi-inserimento/indexMulti.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +57,7 @@
       <workItem from="1597479684644" duration="1667000" />
       <workItem from="1597497205383" duration="102000" />
       <workItem from="1597497320761" duration="30193000" />
-      <workItem from="1597682304327" duration="1370000" />
+      <workItem from="1597682304327" duration="1722000" />
     </task>
     <task id="LOCAL-00001" summary="Primo risultato valido e funzionante">
       <created>1597081629364</created>
@@ -166,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597681356148</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="inserimento spiegazione virgola">
+      <created>1597683718458</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1597683718458</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,13 +193,14 @@
     <MESSAGE value="fix estrazione qunatità e taglia" />
     <MESSAGE value="avanza mento lavori" />
     <MESSAGE value="lavoro finito" />
-    <option name="LAST_COMMIT_MESSAGE" value="lavoro finito" />
+    <MESSAGE value="inserimento spiegazione virgola" />
+    <option name="LAST_COMMIT_MESSAGE" value="inserimento spiegazione virgola" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2" timestamp="1597681356100">
+    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2" timestamp="1597683718372">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
-    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597681356100" />
+    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597683718372" />
     <state x="499" y="97" key="CommitChangelistDialog2/1920.822.1920.1080/0.27.1920.988@0.27.1920.988" timestamp="1597508118878" />
     <state x="2651" y="1085" width="447" height="513" key="FileChooserDialogImpl" timestamp="1597081588721">
       <screen x="1920" y="822" width="1920" height="1080" />

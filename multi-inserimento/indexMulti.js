@@ -129,7 +129,7 @@ new Vue({
          *
          * @param data - il valore può provenire direttamente dalle options o da un imput
          */
-        setQuantitySelected: function () {
+        setQuantitySelected: function (data) {
 
             /* prendo solo l'ultimo inserimento */
             let value = data[data.length - 1];

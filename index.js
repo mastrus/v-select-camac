@@ -4,7 +4,7 @@ new Vue({
     el: '#app',
     data: {
         options: [],
-        camacOrder: '103',
+        camacOrder: 'libero',
         camacCartone: 196,
         camacTaglie: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'],
         valoriDaFornire: 2, //valori da fornire sopra e sotto il valore inserito
@@ -72,14 +72,7 @@ new Vue({
 
                         break;
                     case "libero":
-                        vm.options=[];
-
-                        vm.options.push(
-                            {
-                                taglia: res.taglia,
-                                qty: res.qty,
-                            }
-                        );
+                        vm.options=[data];
                         break
                     default:
                         break;
