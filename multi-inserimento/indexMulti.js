@@ -14,11 +14,12 @@ new Vue({
      * inizializzo tutte le quantita a 0 per ogni taglia disponibile
      */
     created() {
-        for (let i in this.camacTaglie) {
-            this.qtyDaAcquistare[this.camacTaglie[i]] = 0;
-        }
+        this.resetQtyDaAcquistare();
     },
     methods: {
+        resetQtyDaAcquistare: function (){for (let i in this.camacTaglie) {
+            this.qtyDaAcquistare[this.camacTaglie[i]] = 0;
+        }},
         /**
          * @param data quantità digitata dall'utente
          * @param loading funzione per far comparire il simbolo di caricamento
@@ -31,6 +32,7 @@ new Vue({
                 /* attendo che l'utente completi di digitare */
                 this.search(data, this);
                 loading(false);
+
             }
 
         },
@@ -50,6 +52,8 @@ new Vue({
 
             /* prendo solo i valori che sono interi */
             if (Number.isInteger(Math.floor(res.qty))) {
+
+                //todo resettare il valore di ricerca
 
                 /* in base al camac order eseguo opzioni diverse */
                 switch (vm.camacOrder) {
@@ -77,6 +81,9 @@ new Vue({
                     default:
                         break;
                 }
+
+                /* elimino il valore digitato */
+                vm.$refs.reference.search = '';
             }
         }, 500),//millisecondi
         /**
@@ -116,30 +123,58 @@ new Vue({
         /**
          * la funzione imposta la quantità di merce ordinata in base alla taglia
          *
-         * @param value
+         * @param data - il valore può provenire direttamente dalle options o da un imput
          */
         setQuantitySelected: function (data) {
-
-            //todo gestire la cancellazione di un elemento
-            //  sia quando è singolo
-            //  che quando ci sono molti inserimenti
-
-            //todo valutare l'input cancellare l'ultimo inserimento e inserire le opzioni generate
-            //  gestire l'input tramite opzione senza verivicarlo
-
-            //todo verificare che non ci siano gia inserimenti della stessa taglia
 
             /* prendo solo l'ultimo inserimento */
             let value = data[data.length - 1];
 
-            /* verifico che le quantita e taglie inserite siano conformi */
+            /* verfico che l'input non sia l'ultimo elemento */
+            if (value !== undefined) {
 
-            let valueArray = this.verificaInserimento(value);
+                /*
+                * verifico che l'ultimo inserimento non sia gia presente
+                * se presente lo sovrascrivo nei valori che compaiono in v-select
+                */
 
-            if (valueArray !== false) {
-                this.qtyDaAcquistare[valueArray.taglia] = valueArray.qty;
+                //accedo direttamente ai valori di v-select
+                let datiAttuali = this.$refs.reference._data._value
+
+                /* cerco se gia presente la taglia */
+                let datiFiltrati = datiAttuali.filter(function (item) { return item.taglia === value.taglia });
+                if(datiFiltrati.length >1){
+
+                    //elimino l'utimo inserimento
+                    datiAttuali.pop();
+
+                    //sovrascivo il valore nella casella in v-select
+                    for (let i in datiAttuali) {
+                        if (datiAttuali[i].taglia === value.taglia) {
+                            //sovrascrivo il precedente valore
+                            datiAttuali[i].qty = value.qty
+                            break
+                        }
+
+                    }
+                }
+
+                /* azzero tutte le quantità in quanto in caso di eliminazione di un valore non so quale sia stato
+                * eliminato */
+                this.resetQtyDaAcquistare();
+
+                /* inserisco il nuovo valore nella variabile che invierà il form */
+                for(let i in datiAttuali){
+                    this.qtyDaAcquistare[datiAttuali[i].taglia] = datiAttuali[i].qty;
+                }
+
+                /* svuoto le opzioni inserite */
+                this.options = [];
+
             } else {
-                return false;
+                /* azzero tutte le taglia non sapendo quale ultimo valore è stato cancellato */
+                this.resetQtyDaAcquistare();
+
             }
         },
 

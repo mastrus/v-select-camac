@@ -31,6 +31,8 @@
     <v-select
             @input="value => setQuantitySelected(value)"
 
+            ref="reference"
+
             @search="onSearch"
 
             :options="options"
