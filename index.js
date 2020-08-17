@@ -58,7 +58,8 @@ new Vue({
         search: _.debounce((data, vm) => {
 
             /* prendo solo i valori che sono interi */
-            if (Number.isInteger(Math.floor(data))) {
+            data = Math.floor(data);
+            if (Number.isInteger(data)) {
 
                 /* in base al camac order eseguo opzioni diverse */
                 switch (vm.camacOrder) {
@@ -70,6 +71,16 @@ new Vue({
                         vm.options=vm.insertOptions(vm.valoriDaFornire, qtySlot, vm.camacCartone)
 
                         break;
+                    case "libero":
+                        vm.options=[];
+
+                        vm.options.push(
+                            {
+                                taglia: res.taglia,
+                                qty: res.qty,
+                            }
+                        );
+                        break
                     default:
                         break;
                 }

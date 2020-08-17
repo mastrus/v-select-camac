@@ -4,7 +4,7 @@ new Vue({
     el: '#app',
     data: {
         options: [],
-        camacOrder: '103',
+        camacOrder: 'libero',
         camacCartone: 196,
         camacTaglie: ['2XS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL'],
         valoriDaFornire: 2, //valori da fornire sopra e sotto il valore inserito
@@ -51,9 +51,8 @@ new Vue({
             let res = vm.verificaInserimento(data);
 
             /* prendo solo i valori che sono interi */
-            if (Number.isInteger(Math.floor(res.qty))) {
-
-                //todo resettare il valore di ricerca
+            res.qty=Math.floor(res.qty)
+            if (Number.isInteger(res.qty)) {
 
                 /* in base al camac order eseguo opzioni diverse */
                 switch (vm.camacOrder) {
@@ -75,8 +74,13 @@ new Vue({
 
                         break;
                     case "libero":
-                        //todo verificare l'inserimento
-                        vm.options = res;
+                        vm.options=[]
+                        vm.options.push(
+                            {
+                                taglia: res.taglia,
+                                qty: res.qty,
+                            }
+                        );
                         break
                     default:
                         break;
@@ -125,7 +129,7 @@ new Vue({
          *
          * @param data - il valore può provenire direttamente dalle options o da un imput
          */
-        setQuantitySelected: function (data) {
+        setQuantitySelected: function () {
 
             /* prendo solo l'ultimo inserimento */
             let value = data[data.length - 1];
