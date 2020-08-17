@@ -4,7 +4,7 @@ new Vue({
     el: '#app',
     data: {
         options: [],
-        camacOrder: 'libero',
+        camacOrder: 'libero3pezzi',
         camacCartone: 196,
         camacTaglie: ['2XS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL'],
         valoriDaFornire: 2, //valori da fornire sopra e sotto il valore inserito
@@ -73,7 +73,36 @@ new Vue({
                         }
 
                         break;
-                    case "libero":
+                    case "libero3pezzi":
+                        //todo rinominarlo nel corretto camac order
+                        if(res.qty <=3){
+                            vm.options=[]
+                            vm.options.push(
+                                {
+                                    taglia: res.taglia,
+                                    qty: res.qty,
+                                }
+                            );
+
+                        }else {
+                            /* calcolo lo slot minimo che diventerà il moltiplicatore delle quantità ordinabili */
+                            let qtySlot = Math.floor(res.qty / vm.camacCartone);//todo da sostituire in base al camac order
+
+                            /* in base a quanti sono i valori da fornire li ciclo e li inserisco tutti */
+                            res.qty = vm.getQtyOptions(vm.valoriDaFornire, qtySlot, vm.camacCartone);
+
+                            for (let i in res.qty) {
+                                vm.options.push(
+                                    {
+                                        taglia: res.taglia,
+                                        qty: res.qty[i],
+                                    }
+                                );
+                            }
+                        }
+                        break
+                    default:
+                        /* copre i casi per libero e 101 e tutti i casi non impostati */
                         vm.options=[]
                         vm.options.push(
                             {
@@ -81,8 +110,6 @@ new Vue({
                                 qty: res.qty,
                             }
                         );
-                        break
-                    default:
                         break;
                 }
 

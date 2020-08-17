@@ -4,7 +4,7 @@ new Vue({
     el: '#app',
     data: {
         options: [],
-        camacOrder: 'libero',
+        camacOrder: 'libero3pezzi',
         camacCartone: 196,
         camacTaglie: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'],
         valoriDaFornire: 2, //valori da fornire sopra e sotto il valore inserito
@@ -13,8 +13,8 @@ new Vue({
     /**
      * inizializzo tutte le quantita a 0 per ogni taglia disponibile
      */
-    created(){
-        for(let i in this.camacTaglie)  {
+    created() {
+        for (let i in this.camacTaglie) {
             this.qtyDaAcquistare[this.camacTaglie[i]] = 0;
         }
     },
@@ -65,16 +65,28 @@ new Vue({
                 switch (vm.camacOrder) {
                     case "103":
                         /* calcolo lo slot minimo che diventerà il moltiplicatore delle quantità ordinabili */
-                        let qtySlot = Math.floor(data/vm.camacCartone)//todo da sostituire in base al camac order
+                        let qtySlot = Math.floor(data / vm.camacCartone)//todo da sostituire in base al camac order
 
                         /* in base a quanti sono i valori da fornire li ciclo e li inserisco tutti */
-                        vm.options=vm.insertOptions(vm.valoriDaFornire, qtySlot, vm.camacCartone)
+                        vm.options = vm.insertOptions(vm.valoriDaFornire, qtySlot, vm.camacCartone)
 
                         break;
-                    case "libero":
-                        vm.options=[data];
+                    case "libero3pezzi":
+                        //todo rinominarlo nel corretto camac order
+                        if (data <= 3) {
+                            vm.options = [data];
+                        } else {
+                            /* calcolo lo slot minimo che diventerà il moltiplicatore delle quantità ordinabili */
+                            let qtySlot = Math.floor(data / vm.camacCartone)//todo da sostituire in base al camac order
+
+                            /* in base a quanti sono i valori da fornire li ciclo e li inserisco tutti */
+                            vm.options = vm.insertOptions(vm.valoriDaFornire, qtySlot, vm.camacCartone)
+                        }
+
                         break
                     default:
+                        /* copre i casi per libero e 101 e tutti i casi non impostati */
+                        vm.options = [data];
                         break;
                 }
             }
@@ -87,26 +99,28 @@ new Vue({
          * @param imballo numero di pezzi per ogni imballo ordinabili
          * @returns {[]}
          */
-        insertOptions: function (valoriDaFornire, qtySlot, imballo){
-            let options=[];
+        insertOptions: function (valoriDaFornire, qtySlot, imballo) {
+            let options = [];
             let slot = 0;
 
             /* calcolo i valori superiori */
-            for(let i=1;i<=valoriDaFornire; i++) {
-                slot = (qtySlot+i) * imballo;
+            for (let i = 1; i <= valoriDaFornire; i++) {
+                slot = (qtySlot + i) * imballo;
                 options.push(slot);
             }
 
             /* calcolo i valori inferiori */
-            for(let i=valoriDaFornire-1;i>=0; i--) {
-                slot = (qtySlot-i) * imballo;
-                if(slot>=0 && options.indexOf(slot)){
+            for (let i = valoriDaFornire - 1; i >= 0; i--) {
+                slot = (qtySlot - i) * imballo;
+                if (slot >= 0 && options.indexOf(slot)) {
                     options.push(slot);
                 }
             }
 
             /* ordino l'array in maniera ascendente */
-            options.sort(function(a, b){return a-b});
+            options.sort(function (a, b) {
+                return a - b
+            });
             return options;
         },
 

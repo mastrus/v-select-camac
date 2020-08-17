@@ -57,7 +57,7 @@
       <workItem from="1597479684644" duration="1667000" />
       <workItem from="1597497205383" duration="102000" />
       <workItem from="1597497320761" duration="30193000" />
-      <workItem from="1597682304327" duration="1722000" />
+      <workItem from="1597682304327" duration="2189000" />
     </task>
     <task id="LOCAL-00001" summary="Primo risultato valido e funzionante">
       <created>1597081629364</created>
@@ -171,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597683718458</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ottimizzato inserimento libero">
+      <created>1597684242265</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1597684242265</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,13 +201,14 @@
     <MESSAGE value="avanza mento lavori" />
     <MESSAGE value="lavoro finito" />
     <MESSAGE value="inserimento spiegazione virgola" />
-    <option name="LAST_COMMIT_MESSAGE" value="inserimento spiegazione virgola" />
+    <MESSAGE value="ottimizzato inserimento libero" />
+    <option name="LAST_COMMIT_MESSAGE" value="ottimizzato inserimento libero" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2" timestamp="1597683718372">
+    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2" timestamp="1597684242211">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
-    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597683718372" />
+    <state x="1920" y="849" width="1918" height="988" key="CommitChangelistDialog2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597684242211" />
     <state x="499" y="97" key="CommitChangelistDialog2/1920.822.1920.1080/0.27.1920.988@0.27.1920.988" timestamp="1597508118878" />
     <state x="2651" y="1085" width="447" height="513" key="FileChooserDialogImpl" timestamp="1597081588721">
       <screen x="1920" y="822" width="1920" height="1080" />
@@ -214,10 +222,10 @@
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
     <state x="2369" y="977" key="SettingsEditor/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597682017657" />
-    <state x="2475" y="1078" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1597682492432">
+    <state x="2475" y="1078" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1597684230404">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
-    <state x="2475" y="1078" width="800" height="528" key="Vcs.Push.Dialog.v2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597682492432" />
+    <state x="2475" y="1078" width="800" height="528" key="Vcs.Push.Dialog.v2/1920.822.1920.1080/0.0.1920.1015@1920.822.1920.1080" timestamp="1597684230404" />
     <state x="2490" y="955" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597080851022">
       <screen x="1920" y="822" width="1920" height="1080" />
     </state>
