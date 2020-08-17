@@ -105,6 +105,13 @@ new Vue({
          */
         setQuantitySelected: function (data) {
 
+            //todo gestire la cancellazione di un elemento
+            //  sia quando è singolo
+            //  che quando ci sono molti inserimenti
+
+            //todo valutare l'input cancellare l'ultimo inserimento e inserire le opzioni generate
+            //  gestire l'input tramite opzione senza verivicarlo
+
             /* prendo solo l'ultimo inserimento */
             let value = data[data.length - 1];
 
@@ -141,10 +148,14 @@ new Vue({
             tagliaInserita = this.estraiTagliaInserita(value);
 
             if (tagliaInserita !== false) {
-                //todo rimuovere dalla stringa di input la taglia
 
                 /* prelevo la quantita inserita */
-                qtyInserita = value.replace(/\D/g, "");
+                //rimuovo la taglia da dentro la stringa, dato che ci possono essere taglie numeriche
+                //imposto la taglia minuscola per la logica del metodo
+                qtyInserita = value.replace(tagliaInserita.toLocaleLowerCase(), "");
+                //lascio dentro alla stringa solo valori numerici
+                qtyInserita = qtyInserita.replace(/\D/g, "");
+                //converto ad intero la taglia inserita
                 qtyInserita = parseInt(qtyInserita);
 
                 return {
