@@ -31,15 +31,26 @@
     <v-select
             @input="value => setQuantitySelected(value)"
 
-            :filterable="false"
             @search="onSearch"
-            :options="options"
 
-            taggable
+            :options="options"
+            label="taglia"
+
             multiple
     >
-        <template slot="no-options">
-            <span>nessun dato</span>
+        <template v-slot:no-options="{ search, searching }">
+            <template v-if="searching">
+                No results found for <em>{{ search }}</em>.
+            </template>
+            <em style="opacity: 0.5;" v-else>Start typing to search.</em>
+        </template>
+
+        <template v-slot:option="option">
+            {{ option.taglia }} - {{option.qty}}
+        </template>
+
+        <template v-slot:selected-option="option">
+            {{ option.taglia }} - {{option.qty}}
         </template>
 
     </v-select>

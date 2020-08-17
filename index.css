@@ -2,7 +2,7 @@ body {
     font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
 }
 
-h1, .muted {
+h1,.muted {
     color: #2c3e5099;
 }
 
@@ -19,22 +19,45 @@ h1 {
     margin: 1em auto;
 }
 
-#app .dropdown li {
-    border-bottom: 1px solid rgba(112, 128, 144, 0.1)
+.style-chooser .vs__search::placeholder,
+.style-chooser .vs__dropdown-toggle,
+.style-chooser .vs__dropdown-menu {
+    border: 1px solid;
+    color: #394066;
+    border-radius: 0px;
+}
+
+.style-chooser .vs__dropdown-toggle {
+    height: 45px;
+}
+
+.style-chooser .vs__clear,
+.style-chooser .vs__open-indicator {
+    fill: black;
+}
+
+#app .icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* #app .dropdown li {
+  border-bottom: 1px solid rgba(112, 128, 144, 0.1);
+  height: 45px;
 }
 
 #app .dropdown li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 #app .dropdown li a {
-    padding: 10px 20px;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    font-size: 1.25em;
+  padding: 10px 20px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  font-size: 1.25em;
 }
 
 #app .dropdown li a .fa {
-    padding-right: 0.5em;
-}
+  padding-right: 0.5em;
+} */

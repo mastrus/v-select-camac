@@ -6,7 +6,7 @@ new Vue({
         options: [],
         camacOrder: '103',
         camacCartone: 196,
-        camacTaglie: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '2XS'],
+        camacTaglie: ['2XS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL'],
         valoriDaFornire: 2, //valori da fornire sopra e sotto il valore inserito
         qtyDaAcquistare: []
     },
@@ -45,35 +45,50 @@ new Vue({
          */
         search: _.debounce((data, vm) => {
 
-            let res = vm.verificaInserimento(value);
+            /** array res(qty, taglia) */
+            let res = vm.verificaInserimento(data);
 
             /* prendo solo i valori che sono interi */
-            if (Number.isInteger(Math.floor(data))) {
+            if (Number.isInteger(Math.floor(res.qty))) {
 
                 /* in base al camac order eseguo opzioni diverse */
                 switch (vm.camacOrder) {
                     case "103":
                         /* calcolo lo slot minimo che diventerà il moltiplicatore delle quantità ordinabili */
-                        let qtySlot = Math.floor(data / vm.camacCartone)//todo da sostituire in base al camac order
+                        let qtySlot = Math.floor(res.qty / vm.camacCartone);//todo da sostituire in base al camac order
 
                         /* in base a quanti sono i valori da fornire li ciclo e li inserisco tutti */
-                        vm.options = vm.insertOptions(vm.valoriDaFornire, qtySlot, vm.camacCartone)
+                        res.qty = vm.getQtyOptions(vm.valoriDaFornire, qtySlot, vm.camacCartone);
+
+                        for (let i in res.qty) {
+                            vm.options.push(
+                                {
+                                    taglia: res.taglia,
+                                    qty: res.qty[i],
+                                }
+                            );
+                        }
 
                         break;
+                    case "libero":
+                        //todo verificare l'inserimento
+                        vm.options = res;
+                        break
                     default:
                         break;
                 }
             }
-        }, 2500),//millisecondi
+        }, 500),//millisecondi
         /**
-         * restituisce le opzione disponibili da ordinare in base ai parametri
+         * restituisce le opzioni di quantità ordinabili ai parametri
          *
          * @param valoriDaFornire numero di opzioni da fornire sopra e sotto
          * @param qtySlot slot minimo che diventerà il moltiplicatore delle quantità ordinabili
          * @param imballo numero di pezzi per ogni imballo ordinabili
-         * @returns {[]}
+         *
+         * @returns {[]} array di quantita numeriche
          */
-        insertOptions: function (valoriDaFornire, qtySlot, imballo) {
+        getQtyOptions: function (valoriDaFornire, qtySlot, imballo) {
             let options = [];
             let slot = 0;
 
@@ -111,6 +126,8 @@ new Vue({
 
             //todo valutare l'input cancellare l'ultimo inserimento e inserire le opzioni generate
             //  gestire l'input tramite opzione senza verivicarlo
+
+            //todo verificare che non ci siano gia inserimenti della stessa taglia
 
             /* prendo solo l'ultimo inserimento */
             let value = data[data.length - 1];
@@ -191,8 +208,8 @@ new Vue({
             }
 
             /* rimuovo la taglie non trovate */
-            for(let i in taglieDaRimuovere) {
-                this.rimuoviTaglia(taglieDaRimuovere[i],taglieDisponibili);
+            for (let i in taglieDaRimuovere) {
+                this.rimuoviTaglia(taglieDaRimuovere[i], taglieDisponibili);
             }
 
             /*
